@@ -1,0 +1,393 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="shortcut icon" type="image/x-icon" href="https://static.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico" />
+<link rel="mask-icon" type="" href="https://static.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg" color="#111" />
+<title>CodePen - RWD Resume</title>
+<style>
+    body,
+html {
+  height: 100%;
+  margin: 0;
+  font-family: "Raleway", "Microsoft JhengHei";
+}
+.wrapper {
+  min-width: 900px;
+  min-height: 1000px;
+  background: #fff;
+}
+.header {
+  margin-top: 20px;
+  height: 300px;
+  background: #ffc107;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.header h1 {
+  font-size: 3em;
+}
+.side {
+  min-height: 1000px;
+  background: #333;
+  position: absolute;
+  top: 0;
+  left: 20px;
+  width: 300px;
+  padding: 20px;
+  color: #fff;
+}
+.side h2 {
+  color: #ffc107;
+}
+.side a{
+	color:#fff;
+}
+.photo {
+  width: 250px;
+  height: 250px;
+  margin: auto;
+  margin-top: 20px;
+  border-radius: 100%;
+  background-color: #fff;
+  background-image: url("https://gravatar.com/avatar/665b562c5ca5b9b82e71367f526f5b62?s=512&d=https://static.codepen.io/assets/avatars/user-avatar-512x512-6e240cf350d2f1cc07c2bed234c3a3bb5f1b237023c204c782622e80d6b212ba.png");
+  background-size: cover;
+  border: 10px #ffc107 solid;
+}
+.info,
+.skills {
+  margin-top: 50px;
+}
+.skills p {
+  margin: 30px 0px 0px 0px;
+}
+.box-ck,
+.box {
+  display: inline-flex;
+  width: 23px;
+  height: 5px;
+  margin: 0px 1px;
+}
+.box {
+  background: #eee;
+}
+.box-ck {
+  background: #ffc107;
+}
+.content,
+.header * {
+  margin-left: 370px;
+}
+.content {
+  padding: 20px;
+}
+.content p{
+  text-align: justify;
+  letter-spacing:0.5px;
+  line-height:1.5
+}
+.line {
+  border-bottom: 1px solid #ffc107 !important;
+  position: relative;
+}
+.line:before {
+  content: "";
+  position: absolute;
+  display: inline-block;
+  border: 3px solid #ffc107;
+  border-width: 3px 20px;
+  top: -3px;
+  border-radius: 3px;
+}
+a{
+  text-decoration:none;
+	color:#333;
+}
+.content a {
+  display: inline-block;
+  position: relative;
+  font-weight:bold;
+  padding:0px;
+}
+.content a:before, .content a:after {
+  content: '';
+  display: block;
+  position: absolute;
+  height: 2px;
+  width: 0;
+}
+.content a:before {
+  transition: width 0s ease,background .4s ease;
+  bottom: -2px;
+}
+.content a:after {
+  right: 2.2%;
+  bottom: -2px;
+  background: #ffc107;
+  transition: width .4s ease;
+}
+.content a:hover:before {
+  width: 97.8%;
+  background: #ffc107;
+  transition: width .4s ease;
+}
+.content a:hover:after {
+  width: 97.8%;
+  background: 0 0;
+  transition: all 0s ease;
+}
+.content h3 span{
+  display:inline-block;
+}
+.quote {
+ position: relative;
+ font-family: 'Roboto', sans-serif;
+ line-height: 150%;
+}
+.quote:before {
+  color: #000;
+  content: "\201C";
+  font-size: 1.5em;
+  position:absolute;
+  left:-45px;
+  top: 25px;
+  line-height: 0.1em;
+}
+.quote:after {
+  color: #000;
+  content: "\201D";
+  font-size: 1.5em;
+  position:absolute;
+  right:-40px;
+  bottom: -10px;
+  line-height: 0.1em;
+}
+.text-center{
+  text-align:center;
+}
+/* Timeline */
+.timeline {
+  border-left: 4px solid #ffc107;
+  border-bottom-right-radius: 4px;
+  border-top-right-radius: 4px;
+  margin: 20px auto;
+  letter-spacing: 0.5px;
+  position: relative;
+  line-height: 1.4em;
+  font-size: 1.03em;
+  padding: 10px 15px;
+  list-style: none;
+  text-align: left;
+  max-width: 50%;
+}
+
+.timeline .event {
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+  position: relative;
+}
+.timeline .event:last-of-type {
+
+  border: none;
+}
+.timeline .event:before,
+.timeline .event:after {
+  position: absolute;
+  display: block;
+  top: 0;
+}
+.timeline .event:before {
+  left: -160px;
+  content: attr(data-date);
+  text-align: right;
+  font-weight: 100;
+  font-size: 0.9em;
+  min-width: 120px;
+}
+.timeline .event:after {
+  box-shadow: 0 0 0 4px #ffc107;
+  left: -23px;
+  background: #fff;
+  border-radius: 50%;
+  height: 11px;
+  width: 11px;
+  content: "";
+  top: 5px;
+}
+@media screen and (max-width: 650px) {
+  .wrapper {
+    min-width: inherit;
+    min-height: auto;
+    background: #fff;
+  }
+  .side {
+    min-height: inherit;
+    background: #333;
+    /*color: inherit;*/
+    position: inherit;
+    width:inherit;
+  }
+  .side h2 {
+    color: inherit;
+  }
+  .content,
+  .header * {
+    margin-left: 0px;
+  }
+  .header {
+    margin-top: 0px;
+    height: auto;
+  }
+  .header .photo {
+    display: block !important;
+    border: 8px #ffffff solid;
+    margin: 0;
+    width: 220px;
+    height: 220px;
+    margin-top:30px;
+  }
+  .header h3 {
+    margin-bottom:50px;
+  }
+  .side .photo {
+    display: none;
+  }
+  .timeline{
+    margin-left:100px;
+  }
+  .content h3 span{
+  display:block;
+    line-height:1.5
+  }
+}
+
+  </style>
+<script>
+  window.console = window.console || function(t) {};
+</script>
+<script>
+  if (document.location.search.match(/type=embed/gi)) {
+    window.parent.postMessage("resize", "*");
+  }
+</script>
+</head>
+<body translate="no">
+<div class="wrapper">
+<div class="header">
+<div class="photo" style="display:none">
+</div>
+<h1 class="quote">Soundarya R</h1>
+<h3>Persevere | Innovation | Dream</h3>
+</div>
+<div class="side">
+<div class="photo">
+</div>
+<div class="info">
+<h2>INFO</h2>
+<div class="line"></div>
+<p>Name:Soundarya R</p>
+<p>Phone:6360428328</p>
+<p>E-mail:soundarya.rashmi@gmail.com</p>
+<p>Address:Bangalore</p>
+</div>
+<div class="skills">
+<h2>Languages</h2>
+<div class="line"></div>
+<p>C [90%]</p>
+<span class="box-ck"></span>
+<span class="box-ck"></span>
+<span class="box-ck"></span>
+<span class="box-ck"></span>
+<span class="box-ck"></span>
+<span class="box-ck"></span>
+<span class="box-ck"></span>
+<span class="box-ck"></span>
+<span class="box-ck"></span>
+<span class="box"></span>
+<p>C++[85%]</p>
+<span class="box-ck"></span>
+<span class="box-ck"></span>
+<span class="box-ck"></span>
+<span class="box-ck"></span>
+<span class="box-ck"></span>
+<span class="box-ck"></span>
+<span class="box-ck"></span>
+<span class="box-ck"></span>
+<span class="box"></span>
+<span class="box"></span>
+<p>python [50%]</p>
+<span class="box-ck"></span>
+<span class="box"></span>
+<span class="box"></span>
+<span class="box"></span>
+<span class="box"></span>
+<span class="box"></span>
+<span class="box"></span>
+<span class="box"></span>
+<span class="box"></span>
+<span class="box"></span>
+<br><br>
+<h2>TOOLS</h2>
+<div class="line"></div>
+<p>java[60%]</p>
+<span class="box-ck"></span>
+<span class="box-ck"></span>
+<span class="box-ck"></span>
+<span class="box-ck"></span>
+<span class="box-ck"></span>
+<span class="box-ck"></span>
+<span class="box-ck"></span>
+<span class="box-ck"></span>
+<span class="box-ck"></span>
+<span class="box"></span>
+<p>Coding[70%]</p>
+<span class="box-ck"></span>
+<span class="box-ck"></span>
+<span class="box-ck"></span>
+<span class="box-ck"></span>
+<span class="box-ck"></span>
+<span class="box-ck"></span>
+<span class="box-ck"></span>
+<span class="box-ck"></span>
+<span class="box-ck"></span>
+<span class="box"></span>
+<p>InDesign [70%]</p>
+<span class="box-ck"></span>
+<span class="box-ck"></span>
+<span class="box-ck"></span>
+<span class="box-ck"></span>
+<span class="box-ck"></span>
+<span class="box-ck"></span>
+<span class="box-ck"></span>
+<span class="box"></span>
+<span class="box"></span>
+<span class="box"></span>
+</div>
+</div>
+<div class="content">
+<h2>ABOUT ME</h2>
+<div class="line"></div>
+<p>I am Soundarya .I like coding.I have some knowledge about some of the languages like C,C++,java, HTML.And I'm interested in reading books and playing games.</p>
+<h2>EDUCATION</h2>
+<div class="line"></div>
+<ul class="timeline">
+<li class="event" data-date="2004-2015">
+<h3>School</h3>
+<p>Standard Public School</p>
+</li>
+<li class="event" data-date="2015-2017">
+<h3> PU College</h3>
+<p>Alvas PU College</p>
+<li class="event" data-date="2017-2021">
+<h3>College</h3>
+<p>Alvas Institute Of Engineering And Technology </p>
+</li>
+</li>
+</ul>
+</div>
+</div>
+</body>
+</html>
